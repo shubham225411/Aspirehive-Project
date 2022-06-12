@@ -1,15 +1,14 @@
 
-
 const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
-
+const tasks = require('./routes/tasks');
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
-
-
+const notFound = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
 const User=require('./models/users');
 //passport
 const passport=require('passport');
@@ -37,7 +36,6 @@ const sessionOption={
     }
 
 };
-
 mongoose.connect('mongodb://localhost:27017/Login', {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -68,7 +66,8 @@ app.use(flash());
 app.use(session(sessionOption));
 
 //public
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static('./public'));
+app.use(express.json());
 
 
 //all the app.use(passport) shpould come before universal middleware i.e app.use
@@ -103,15 +102,14 @@ passport.use(new passportLocal(User.authenticate()));
 //to use all the routes of the campgrounds
 app.use('/',indexroutes);
 app.use('/users',usersRoutes);
+app.use('/api/v1/tasks', tasks);
 
 
 
 
 
-
-
-
-
+app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 
 

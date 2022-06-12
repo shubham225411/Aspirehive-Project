@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <!-- normalize css -->
+    <link rel="stylesheet" href="./normalize.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="./main.css" />
+    <title>Task Manager || Final</title>
+  </head>
+  <body>
+    <!-- <button class="button-86" role="button">Play game!!!
+      <a href="/users/game"></a>
+    </button> -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">Nodejs App</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                  <a class="nav-link" href="/home">Home</a>
+                 
+                 
+              </div>
+              <!--  -->
+             
+              <div class="navbar-nav ml-auto">
+                  <!-- <% if(!currentUser) {%>
+                     
+                      <a class="nav-link" href="/users/login"><button class="btn btn-primary btn-sm rounded-pill">Login</button></a>
+                      <a class="nav-link" href="/users/register"><button class="btn btn-primary btn-sm rounded-pill">Register</button></a>
+                      <% } else{%> -->
+                         <!-- <span class="badge bg-success mt-3" style="height: 20px;"> <%= currentUser.username %> </span> -->
+                          <a class="nav-link" href="/users/logout"><button class="btn btn-danger btn-sm rounded-pill">LogOut</button></a>
+                     <!-- <% }%> -->
+                      
+                     
+              </div>
+          </div>
+      </div>
+  </nav>
+    <form class="task-form">
+      <h4>task manager</h4>
+      
+      <div class="form-control">
+        
+        <input
+          type="text"
+          name="name"
+          class="task-input"
+          placeholder="e.g. wash dishes"
+        />
+        
+        <button type="submit" class="btn submit-btn">submit</button>
+      </div>
+      <div class="form-alert"></div>
+    </form>
+    <!-- HTML !-->
+    <section class="tasks-container">
+      <p class="loading-text">Loading...</p>
+      
+      <div class="tasks"></div>
+    </section>
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./browser-app.js"></script>
+  </body>
+</html>

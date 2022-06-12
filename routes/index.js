@@ -11,13 +11,14 @@ router.get('/',(req,res)=>{
 router.get('/home',(req,res)=>{
    res.render('home')
 })
-router.get('/dashboard',(req,res)=>{
+router.get('/index.html',(req,res)=>{
 
     if(!req.user)
     { 
         req.flash('error','you need to be logged in first')
        return res.redirect('/users/login');
     }
-    res.render('dashboard')
+     res.render('dashboard')
+    // res.sendFile(path.join(__dirname+'/index.html'));
 })
 module.exports=router;

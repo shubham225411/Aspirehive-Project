@@ -33,11 +33,11 @@ module.exports.renderLoginForm=(req,res)=>{
 module.exports.loginUser=(req, res) => {
     req.flash('success', 'welcome back!');
     
-    res.redirect('/dashboard');
+    res.redirect('/index.html');
 }
 
 module.exports.logOut=(req,res)=>{
     req.logOut();
     req.flash('success','logged out')
-    res.redirect('/');
+    res.redirect('/home');
 }
